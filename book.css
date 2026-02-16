@@ -1,0 +1,1258 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    min-height: 100vh;
+    font-family: "Lexend Deca", sans-serif;
+}
+
+html.no-scroll,
+body.no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+
+.top-nav {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 4px 0;
+    padding: 0 30px 0 30px;
+    height: 90px;
+    z-index: 200;
+
+}
+
+.top-nav .wrapper {
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.menu-dropdown-wrapper {
+    position: relative;
+    margin-right: 32px;
+}
+
+.menu-trigger {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 300;
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    display: inline-block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 85%;
+    right: -20px;
+    background-color: #ACABAB;
+    min-width: 300px;
+    padding: 25px 0;
+    z-index: 999;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    margin-top: 5px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+}
+
+.menu-dropdown-wrapper:hover .dropdown-menu {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.dropdown-menu ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-menu li {
+    list-style: none;
+    margin: 5px;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #222;
+    margin-right: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.2s;
+}
+
+
+.logo-icon img {
+    width: 100px;
+}
+
+.top-nav .search-icon {
+    cursor: pointer;
+}
+
+.top-nav .right-icons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 50px;
+}
+
+.top-nav .right-icons .search-icon {
+    margin-right: 20px;
+}
+
+
+.top-nav .right-icons {
+    position: relative;
+}
+
+.top-nav .search-container {
+    position: absolute;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: 400ms;
+}
+
+.top-nav .search-container input[type="text"] {
+    padding: 8px 24px;
+    border: 0;
+}
+
+.top-nav .search-container input[type="submit"] {
+    padding: 8px 24px;
+    border: 0;
+}
+
+.top-nav .search-container.active {
+    position: absolute;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.instagram-icon {
+    filter: brightness(0) invert(0);
+}
+
+/* Hidden Items */
+
+.mobile-menu-icon,
+.mobile-menu-container,
+.menu-close-icon {
+    display: none;
+}
+
+
+@media (max-width: 1000px) {
+
+    .right-icons .instagram-icon {
+        display: none;
+    }
+
+    .wrapper {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    .top-nav .mobile-menu-icon {
+        display: block;
+        cursor: pointer;
+        filter: brightness(0) invert(0);
+    }
+
+    .top-nav .menu-dropdown-wrapper {
+        display: none;
+    }
+
+    .mobile-menu-container {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        background-color: #fff;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        top: -100%;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .mobile-menu-container.active {
+        opacity: 1;
+        pointer-events: auto;
+        top: 0;
+        overflow: hidden;
+    }
+
+    .mobile-menu-levels {
+        display: flex;
+        width: 200%;
+        height: 100%;
+        transition-delay: .2s;
+        transition: all .4s ease-in-out;
+
+    }
+
+    .menu-level {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        padding: 70px 20px 40px;
+        box-sizing: border-box;
+    }
+
+    .menu-level ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .menu-level li {
+        margin: 30px 0;
+    }
+
+    .menu-level a {
+        color: #ccc;
+        font-size: 35px;
+        text-decoration: none;
+        display: block;
+    }
+
+    /* Level 1 styling */
+    .submenu-trigger {
+        font-size: 28px;
+        font-weight: 400;
+    }
+
+    .has-submenu .arrow {
+        font-size: 60px;
+        margin-left: 10px;
+
+
+    }
+
+    /* Level 2 styling */
+    .back-item a {
+        font-size: 35px;
+        display: inline-flex;
+        align-items: center;
+        color: #ccc;
+        margin-bottom: 0px;
+    }
+
+    .back-item .arrow {
+        margin-right: 14px;
+        margin-left: 0;
+        font-size: 60px;
+        margin-bottom: 10px;
+    }
+
+    /* Search */
+    /* .search-item {
+        margin: 50px 0 70px;
+    }
+
+    .top-nav .search-container {
+        position: absolute;
+        opacity: 1;
+        pointer-events: auto;
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .blog-search {
+        display: flex;
+        background-color: red;
+
+    }
+
+    .blog-search input[type="text"] {
+        flex: 1;
+        font-size: 20px;
+        border: 1px solid #ccc;
+        border-right: none;
+        border-radius: 6px 0 0 6px;
+    }
+
+    .blog-search input[type="submit"] {
+        padding: 14px 26px;
+        font-size: 17px;
+        background: #222;
+        color: #fff;
+        border: none;
+        border-radius: 0 6px 6px 0;
+        cursor: pointer;
+    } */
+
+    /* Instagram icon centered */
+    .instagram-icon {
+        text-align: center;
+        filter: brightness(0) invert(0);
+    }
+
+    .mobile-menu-container.active.show-submenu .mobile-menu-levels {
+        transform: translateX(-100%);
+    }
+
+    .top-nav .menu-close-icon {
+        display: none;
+        position: fixed;
+        top: 15px;
+        right: 40px;
+        z-index: 300;
+        width: 50px;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        filter: brightness(0) invert(0);
+
+        cursor: pointer;
+    }
+
+    .mobile-menu-container.active+.menu-close-icon {
+        display: flex;
+    }
+
+}
+
+
+.book-section {
+    position: relative;
+    background: #ffffff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.book-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-height: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.book-video-background {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 1;
+    will-change: transform;
+    filter: brightness(100%) grayscale(100%);
+}
+
+.book-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, .5);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.book-content-overlay {
+    display: flex;
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    color: #000000;
+}
+
+.book-title {
+    font-size: clamp(4.7rem, 12vw, 12rem);
+    font-family: "Abril Fatface", sans-serif;
+    font-weight: 400;
+    letter-spacing: -5px;
+    line-height: .88;
+    margin: 0;
+}
+
+.book-modalities {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 50px;
+}
+
+.book-modalities p {
+    font-size: clamp(.8rem, 4.5vw, 1rem);
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+}
+
+.book-content-overlay .field {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 300px;
+}
+
+.book-content-overlay .field .mouse {
+    top: 80px;
+    width: 50px;
+    height: 90px;
+    border: 3px solid #333;
+    border-radius: 60px;
+    position: relative;
+
+    &::before {
+        content: '';
+        width: 12px;
+        height: 12px;
+        position: absolute;
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #333;
+        border-radius: 50%;
+        opacity: 1;
+        animation: wheel 2s infinite;
+        -webkit-animation: wheel 2s infinite;
+    }
+}
+
+@keyframes wheel {
+    to {
+        opacity: 0;
+        top: 60px;
+    }
+}
+
+@-webkit-keyframes wheel {
+    to {
+        opacity: 0;
+        top: 60px;
+    }
+}
+
+
+
+
+
+.book-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 5vw;
+    color: #000;
+}
+
+.book-split-container {
+    margin: 5rem 0 7rem;
+}
+
+.book-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    align-items: center;
+}
+
+.book-image-wrapper {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.book-image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.bookpost-column {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bookpost-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+
+.bookpost-title {
+    font-family: "Abril Fatface", sans-serif;
+    font-size: clamp(4rem, 9vw, 7rem);
+    font-weight: 400;
+    letter-spacing: -4px;
+    line-height: 0.9;
+    margin: 0 0 2.2rem 0;
+    position: relative;
+}
+
+.bookpost-title::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    border-top: 5px solid #ccc;
+    border-right: 100px solid #ccc;
+    border-left: 100px solid #ffffff;
+    border-bottom: 1px solid #ccc;
+    left: 0;
+    bottom: -15px;
+    border-radius: 50%;
+    height: 6px;
+    margin-left: -15%;
+}
+
+
+.bookpost-body {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: clamp(1.35rem, 4vw, 1.65rem);
+    line-height: 1.6;
+    text-transform: uppercase;
+    color: #000;
+    margin: 2rem 0 3.5rem;
+}
+
+.bookpost-body p {
+    margin: 0.9em 0;
+}
+
+.book-buttons {
+    display: inline-flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    text-align: center;
+    font-size: 10px;
+
+}
+
+.book-buttons .physical,
+.book-buttons .epub {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    padding: 0.9em 2.2em;
+}
+
+.book-buttons .physical {
+    border-left: 1px solid #000;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: #000;
+}
+
+.book-buttons .epub {
+    border-right: 1px solid #000;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.book-buttons a {
+    text-decoration: none;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+    padding: 0.4em 1.2em;
+    display: block;
+}
+
+.book-buttons .physical a {
+    color: #fff;
+}
+
+.book-buttons .epub a {
+    color: #000;
+}
+
+/* Hover states (optional improvement) */
+.book-buttons .physical:hover {
+    background-color: #111;
+}
+
+.book-buttons .epub:hover {
+    background-color: #f8f8f8;
+}
+
+/* ────────────────────────────────────────────────
+   RESPONSIVE LAYOUT
+───────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+    .book-image-wrapper {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 850px) {
+    .bookpost-title::after {
+        width: 80%;
+        border-right: 60px solid #ccc;
+        left: 10%;
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    .book-content-wrapper {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    /* Make the column behave like it has no wrapper for ordering children */
+    .bookpost-column {
+        display: contents;
+        /* ← key property – removes the wrapper from layout */
+        order: 2;
+        /* still control general position if needed */
+    }
+
+    /* Now we can directly order the grandchildren */
+    .bookpost-title {
+        order: 1;
+        text-align: center;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .bookpost-body {
+        order: 2;
+        text-align: center;
+        margin: 0 0 2.5rem 0;
+    }
+
+    .book-image-wrapper {
+        order: 3;
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    /* Buttons come last – they are inside .bookpost-card which is now "contents" */
+    .book-buttons {
+        order: 4;
+        margin-top: 1.5rem;
+        flex-direction: column;
+        gap: 1.2rem;
+        width: 100%;
+        max-width: 380px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Mobile-friendly separate full-width pill buttons */
+    .book-buttons .physical,
+    .book-buttons .epub {
+        width: 100%;
+        border-radius: 50px;
+        border: 1px solid #000;
+        padding: 1.1em 2em;
+        text-align: center;
+    }
+
+    .book-buttons .physical {
+        background-color: #000;
+        color: white;
+    }
+
+    .bookpost-card {
+        display: contents;
+        /* optional – extra safety if you want to flatten further */
+        padding: 0;
+    }
+
+    /* Fix the decorative underline centering */
+    .bookpost-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        margin-left: 0;
+        width: 60%;
+        border-right-width: 45px;
+        bottom: -10px;
+    }
+}
+
+
+
+/* Info */
+
+.bookinfo-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 5vw;
+    color: #000;
+}
+
+.bookinfo-split-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8%;
+    margin: 5rem 0 7rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.bookinfo-post-wrapper {
+    flex: 1 1 45%;
+    flex-direction: column;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+
+
+}
+
+.bookinfo-post-wrapper .part-one,
+.bookinfo-post-wrapper .part-two {
+    margin-top: 100px;
+}
+
+.bookinfo-post-wrapper .text-content {
+    width: 100%;
+    max-width: 540px;
+    /* comfortable reading width */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* left align content inside */
+}
+
+.bookinfo-post-wrapper h2 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+    line-height: 1.15;
+    font-weight: 800;
+    margin: 0 0 1.8rem 0;
+    letter-spacing: -0.03em;
+    color: #111;
+    font-family: "Abril Fatface", serif;
+    text-align: center;
+}
+
+.bookinfo-post-wrapper .bookinfo-text {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: #444;
+    margin: 0 0 1.8rem 0;
+    font-weight: 700;
+}
+
+.bookinfo-post-wrapper ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.bookinfo-post-wrapper li {
+    font-size: 1.18rem;
+    line-height: 1.75;
+    color: #222;
+    margin-bottom: 1.1rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.bookinfo-post-wrapper li::before {
+    content: "•";
+    color: #000000;
+    /* nicer red */
+    position: absolute;
+    left: 0;
+    font-size: 1.3rem;
+    line-height: 2;
+}
+
+.bookinfo-column {
+    flex: 1 1 45%;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    /* center the card horizontally */
+    align-items: center;
+    /* center vertically if needed */
+}
+
+.bookinfopost-card {
+    width: 100%;
+    max-width: 520px;
+    /* ← made significantly bigger */
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.bookinfo-thumbnail-image {
+    width: 100%;
+    aspect-ratio: 3 / 4.6;
+    overflow: hidden;
+}
+
+.bookinfo-thumbnail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+@media (max-width: 960px) {
+    .bookinfo-split-container {
+        flex-direction: column;
+        gap: 4rem;
+        align-items: stretch;
+    }
+
+    .bookinfo-post-wrapper,
+    .bookinfo-column {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .bookinfopost-card {
+        max-width: 480px;
+        /* still large on mobile */
+    }
+
+    /* Optional: put image on top on mobile */
+    .bookinfo-column {
+        order: -1;
+    }
+}
+
+
+
+
+
+.bookabout-wrapper {
+    padding: 80px 5% 120px;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+}
+
+.bookabout-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+}
+
+.bookabout-bg-image::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 30, 50, 0.45);
+    z-index: 1;
+}
+
+.modules-section {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.modules-section h2 {
+    font-size: 2.8rem;
+    margin-bottom: 3rem;
+    color: #1a1a1a;
+    font-family: "Abril Fatface", sans-serif;
+}
+
+.modules-split-container {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+}
+
+.carousel-column {
+    flex: 1;
+    max-width: 50%;
+    min-width: 320px;
+    margin-top: 100px;
+    width: 100%;
+
+}
+
+.carousel-container {
+    position: relative;
+    height: 500px;
+    /* adjust to fit your tallest card */
+    overflow: hidden;
+    border-radius: 16px;
+
+
+}
+
+.modules-track {
+    position: absolute;
+    inset: 0;
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+.module-card {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    inset: 0 1rem;
+    margin: 0 1rem;
+    padding: 2.2rem 2rem;
+    background: transparent;
+    background-color: rgba(255, 255, 255, 0.251);
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.09);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(60px);
+    transition: all 0.75s cubic-bezier(0.23, 1, 0.32, 1);
+    color: #000;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 80px;
+}
+
+.module-number {
+    margin-top: -180px;
+    font-size: 20px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.module-card h3 {
+    margin-bottom: 50px;
+    font-size: 30px;
+    font-family: "Abril Fatface", sans-serif;
+}
+
+.module-card p {
+    margin-bottom: -150px;
+    font-size: 18px;
+
+}
+
+.module-card.visible {
+   
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+/* Arrows – now horizontal */
+.carousel-arrow {
+    position: absolute;
+    top: 90%;
+    transform: translateY(-50%);
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    color: #000;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    z-index: 10;
+    background: none;
+}
+
+.carousel-arrow:hover {
+    /* background: rgba(30, 30, 50, 0.98); */
+    transform: translateY(-50%) scale(1.1);
+}
+
+.left-arrow {
+    left: 80px;
+}
+
+.right-arrow {
+    right: 80px;
+}
+
+/* Mobile – stack vertically */
+@media (max-width: 980px) {
+    .modules-split-container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .carousel-column {
+        max-width: 100%;
+    }
+
+    .carousel-container {
+        height: 520px;
+    }
+}
+
+.membership-section {
+    background: #000;
+    color: #fff;
+    padding: 100px 5vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.membership-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.membership-title {
+    font-size: clamp(4.5rem, 9vw, 5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5rem;
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.faq-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    margin-top: 30px;
+    transition: color 0.2s;
+}
+
+.faq-question:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.faq-toggle {
+    font-size: 2.2rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    padding: 0 0 1.5rem 0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    /* adjust if answers are longer */
+    opacity: 1;
+    padding: 0 0 2.5rem 0;
+}
+
+.pricing-sidebar {
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+
+.price-box {
+    margin-bottom: 5rem;
+}
+
+.price {
+    font-size: clamp(5rem, 10vw, 5rem);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.price-period {
+    font-size: 1.6rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+}
+
+.join-btn {
+    display: inline-block;
+    padding: 20px 80px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: #000;
+    background: #fff;
+    border-radius: 999px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.join-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .pricing-sidebar {
+        position: static;
+        text-align: center;
+    }
+
+    .membership-title {
+        font-size: clamp(4rem, 10vw, 8rem);
+    }
+}
+
+@media (max-width: 640px) {
+    .membership-section {
+        padding: 80px 6vw;
+    }
+
+    .faq-question {
+        font-size: 1.5rem;
+    }
+
+    .join-btn {
+        padding: 16px 60px;
+        font-size: 1.2rem;
+    }
+}
+
+footer {
+    padding: 40px 20px 30px;
+    border-top: 1px solid #000;
+}
+
+.wrapper-footer {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px 150px;
+    font-size: clamp(1rem, 10vw, 1.2rem);
+    color: #333;
+}
+
+.links a {
+    color: #444;
+    text-decoration: none;
+    transition: color .2 ease;
+}
+
+.copy-write-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 16px 24px;
+    font-size: 14px;
+    color: #666;
+}
+
+.footer-logo img {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+@media (max-width: 1217px) {
+    .links {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+    }
+
+    .copy-write-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+
+    .footer-logo img {
+        height: 28px;
+    }
+}
